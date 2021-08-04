@@ -1,0 +1,29 @@
+{
+    "name": "cordova-plugin-crowdconnected-colocator-ios-integration",
+    "version": "1.0.0",
+    "description": "An iOS Cordova plugin that handles all the specific settings of iOS for the Crowd Connected Colocator.",
+    "cordova": {
+      "id": "cordova-plugin-crowdconnected-colocator-ios-integration",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/pathable/cordova-plugin-crowdconnected-colocator-ios-integration.git"
+    },
+    "keywords": [
+      "cordova",
+      "ecosystem:cordova",
+      "cordova-ios",
+      "crowdconnected",
+      "colocator",
+      "ios"
+    ],
+    "author": "Dyarlen Iber <dyarlen1@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/pathable/cordova-plugin-crowdconnected-colocator-ios-integration/issues"
+    },
+    "homepage": "https://github.com/pathable/cordova-plugin-crowdconnected-colocator-ios-integration"
+}

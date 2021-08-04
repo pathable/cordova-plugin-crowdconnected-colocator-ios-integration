@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="cordova-plugin-crowdconnected-colocator-ios-integration" version="1.0.0">
+    <name>Crowd Connected Colocator iOS integration</name>
+    <description>An iOS Cordova plugin that handles all the specific settings of iOS for the Crowd Connected Colocator.</description>
+    <license>MIT</license>
+    <keywords>cordova,crowdconnected,colocator,ios</keywords>
+    <js-module src="www/crowdconnected-colocator-ios-integration.js" name="CrowdConnectedColocatoriOSIntegration">
+        <clobbers target="CrowdConnectedColocatoriOSIntegration" />
+    </js-module>
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="CrowdConnectedColocatoriOSIntegration">
+                <param name="ios-package" value="CDVCrowdConnectedColocatoriOSIntegration"/>
+            </feature>
+        </config-file>
+        <header-file src="src/ios/CDVCrowdConnectedColocatoriOSIntegration.h" />
+        <source-file src="src/ios/CDVCrowdConnectedColocatoriOSIntegration.m" />
+    </platform>
+</plugin>
