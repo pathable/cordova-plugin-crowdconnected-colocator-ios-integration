@@ -2,6 +2,6 @@
 
 @interface CDVCrowdConnectedColocatoriOSIntegration : CDVPlugin
 
-- (void)start:(CDVInvokedUrlCommand*)command
+- (void) start:(CDVInvokedUrlCommand*)command;
 
 @end

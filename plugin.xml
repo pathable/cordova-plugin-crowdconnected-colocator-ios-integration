@@ -11,10 +11,13 @@
     <platform name="ios">
         <config-file target="config.xml" parent="/*">
             <feature name="CrowdConnectedColocatoriOSIntegration">
-                <param name="ios-package" value="CDVCrowdConnectedColocatoriOSIntegration"/>
+                <param name="ios-package" value="CDVCrowdConnectedColocatoriOSIntegration" />
+                <param name="onload" value="true" />
             </feature>
         </config-file>
         <header-file src="src/ios/CDVCrowdConnectedColocatoriOSIntegration.h" />
         <source-file src="src/ios/CDVCrowdConnectedColocatoriOSIntegration.m" />
+        <header-file src="src/ios/AppDelegate+CDVCrowdConnectedColocatoriOSIntegration.h" />
+        <source-file src="src/ios/AppDelegate+CDVCrowdConnectedColocatoriOSIntegration.m" />
     </platform>
 </plugin>
