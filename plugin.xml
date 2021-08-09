@@ -5,19 +5,16 @@
     <description>An iOS Cordova plugin that handles all the specific settings of iOS for the Crowd Connected Colocator.</description>
     <license>MIT</license>
     <keywords>cordova,crowdconnected,colocator,ios</keywords>
-    <js-module src="www/crowdconnected-colocator-ios-integration.js" name="CrowdConnectedColocatoriOSIntegration">
-        <clobbers target="CrowdConnectedColocatoriOSIntegration" />
-    </js-module>
     <platform name="ios">
         <config-file target="config.xml" parent="/*">
             <feature name="CrowdConnectedColocatoriOSIntegration">
-                <param name="ios-package" value="CDVCrowdConnectedColocatoriOSIntegration" />
+                <param name="ios-package" value="CrowdConnectedColocatoriOSIntegration" />
                 <param name="onload" value="true" />
             </feature>
         </config-file>
-        <header-file src="src/ios/CDVCrowdConnectedColocatoriOSIntegration.h" />
-        <source-file src="src/ios/CDVCrowdConnectedColocatoriOSIntegration.m" />
-        <header-file src="src/ios/AppDelegate+CDVCrowdConnectedColocatoriOSIntegration.h" />
-        <source-file src="src/ios/AppDelegate+CDVCrowdConnectedColocatoriOSIntegration.m" />
+        <header-file src="src/ios/CDVPlugin+CrowdConnectedColocatoriOSIntegration.h" />
+        <source-file src="src/ios/CDVPlugin+CrowdConnectedColocatoriOSIntegration.m" />
+        <header-file src="src/ios/AppDelegate+CrowdConnectedColocatoriOSIntegration.h" />
+        <source-file src="src/ios/AppDelegate+CrowdConnectedColocatoriOSIntegration.m" />
     </platform>
 </plugin>
