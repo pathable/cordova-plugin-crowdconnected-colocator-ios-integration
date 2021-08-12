@@ -5,6 +5,9 @@
     <description>An iOS Cordova plugin that handles all the specific settings of iOS for the Crowd Connected Colocator.</description>
     <license>MIT</license>
     <keywords>cordova,crowdconnected,colocator,ios</keywords>
+    <js-module src="www/CrowdConnectedColocatoriOSIntegration.js" name="CrowdConnectedColocatoriOSIntegration">
+        <clobbers target="window.CrowdConnectedColocatoriOSIntegration" />
+    </js-module>
     <platform name="ios">
         <config-file target="config.xml" parent="/*">
             <feature name="CrowdConnectedColocatoriOSIntegration">

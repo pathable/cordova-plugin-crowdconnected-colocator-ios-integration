@@ -6,4 +6,6 @@
 
 + (BOOL) isAppKeyValid;
 
+- (void) start:(CDVInvokedUrlCommand *)command;
+
 @end

@@ -21,36 +21,42 @@ static BOOL *isAppKeyValid;
     return isAppKeyValid;
 }
 
-- (void) updateAppKey
+- (void) updateAppKey:(NSString *)key
 {
-    appKey = [self.commandDelegate.settings objectForKey:[@"crowdconnectedcolocatorappkey" lowercaseString]];
-    isAppKeyValid = (appKey != nil && [appKey length] > 0);
+    appKey = key;
+    isAppKeyValid = (key != nil && [key length] > 0);
 }
 
-- (void) pluginInitialize
+- (void) start:(CDVInvokedUrlCommand *)command
 {
-    [self updateAppKey];
+    NSLog(@"[%@] start", TAG);
 
-    if (isAppKeyValid) {
-        NSLog(@"[%@] appKey is valid", TAG);
+    CDVPluginResult* pluginResult = nil;
 
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didFinishLaunchingNotification:) name:UIApplicationDidFinishLaunchingNotification object:nil];
-    }
-}
+    @try {
+        [self updateAppKey:[command.arguments objectAtIndex:0]];
 
-- (void) didFinishLaunchingNotification:(NSNotification *)notification
-{
-    if (isAppKeyValid) {
-        NSLog(@"[%@] didFinishLaunchingNotification", TAG);
+        if (isAppKeyValid) {
+            NSLog(@"[%@] appKey is valid", TAG);
 
-        @try {
-            [CCLocation.sharedInstance startWithApiKey:appKey urlString:@"URL_STRING"];
+            NSString *urlString = [NSString stringWithFormat:@"%@.colocator.net", appKey];
+            [CCLocation.sharedInstance startWithApiKey:appKey urlString:urlString];
 
             [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:60];
             [[UIApplication sharedApplication] registerForRemoteNotifications];
-        } @catch (NSException *e) {
-            NSLog(@"[%@] Error: %@", TAG, [e reason]);
+
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+        } else {
+            NSLog(@"[%@] appKey is invalid", TAG);
+
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"appKey is invalid"];
         }
+    } @catch (NSException *e) {
+        NSLog(@"[%@] Error: %@", TAG, [e reason]);
+
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[e reason]];
+    } @finally {
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     }
 }
 
