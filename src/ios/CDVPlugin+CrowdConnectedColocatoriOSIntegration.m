@@ -39,7 +39,7 @@ static BOOL *isAppKeyValid;
         if (isAppKeyValid) {
             NSLog(@"[%@] appKey is valid", TAG);
 
-            NSString *urlString = [NSString stringWithFormat:@"%@.colocator.net", appKey];
+            NSString *urlString = [NSString stringWithFormat:@"%@.colocator.net:443/socket", appKey];
             [CCLocation.sharedInstance startWithApiKey:appKey urlString:urlString];
 
             [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:60];
