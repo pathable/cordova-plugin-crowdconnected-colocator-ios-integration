@@ -43,7 +43,6 @@ static BOOL *isAppKeyValid;
             [CCLocation.sharedInstance startWithApiKey:appKey urlString:urlString];
 
             [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:60];
-            [[UIApplication sharedApplication] registerForRemoteNotifications];
 
             pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
         } else {
